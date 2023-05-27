@@ -1,0 +1,461 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=alpino@700&f[]=satoshi@400&f[]=red-hat-display@900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c416e79406.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,300&f[]=alpino@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@1&display=swap" rel="stylesheet">
+
+    <style>
+        .expand-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border: none;
+            background-color: #f0f0f0;
+            transition: width 0.3s ease;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .expand-button:hover {
+            width: 120px;
+            /* Adjust the width as needed */
+        }
+
+        .expand-button ion-icon {
+            margin-right: 8px;
+        }
+
+        .expand-text {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .expand-button:hover .expand-text {
+            opacity: 1;
+        }
+
+
+        :root {
+            --bg-color: rgb(20, 20, 20);
+            --card-color: rgb(23, 23, 23);
+        }
+
+        .font-nunito {
+            font-family: 'Nunito';
+        }
+
+        #cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-width: 916px;
+            width: calc(100% - 20px);
+            font-family: 'Nunito' !important;
+        }
+
+        #cards:hover>.card::after {
+            opacity: 1;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            height: 260px;
+            flex-direction: column;
+            position: relative;
+            width: 300px;
+            font-family: 'Nunito' !important;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card::before,
+        .card::after {
+            border-radius: inherit;
+            content: "";
+            height: 100%;
+            left: 0px;
+            opacity: 0;
+            position: absolute;
+            top: 0px;
+            transition: opacity 500ms;
+            width: 100%;
+        }
+
+        .card::before {
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+                    rgba(255, 255, 255, 0.06),
+                    transparent 40%);
+            z-index: 3;
+        }
+
+        .hero_text {
+            font-family: 'Clash Display', sans-serif;
+        }
+
+        .card::after {
+            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+                    rgba(255, 255, 255, 0.4),
+                    transparent 40%);
+            z-index: 1;
+        }
+
+        .card>.card-content {
+            background-color: var(--card-color);
+            border-radius: inherit;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            inset: 1px;
+            padding: 10px;
+            position: absolute;
+            z-index: 2;
+        }
+
+        /* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
+
+        h1,
+        h2,
+        h3,
+        h4,
+        span {
+            color: rgb(240, 240, 240);
+            font-weight: 400;
+            margin: 0px;
+        }
+
+        i {
+            color: rgb(240, 240, 240);
+        }
+
+        .card-image {
+            align-items: center;
+            display: flex;
+            height: 140px;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-image>i {
+            font-size: 6em;
+            opacity: 0.25;
+        }
+
+        .card-info-wrapper {
+            align-items: center;
+            display: flex;
+            flex-grow: 1;
+            justify-content: flex-start;
+            padding: 0px 20px;
+        }
+
+        .card-info {
+            align-items: flex-start;
+            display: flex;
+            gap: 10px;
+        }
+
+        .card-info>i {
+            font-size: 1em;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .card-info-title>h3 {
+            font-size: 1.1em;
+            line-height: 20px;
+        }
+
+        .card-info-title>h4 {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85em;
+            margin-top: 8px;
+        }
+
+        /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
+
+        @media(max-width: 1000px) {
+            body {
+                align-items: flex-start;
+                overflow: auto;
+            }
+
+            #cards {
+                max-width: 1000px;
+                padding: 10px 0px;
+            }
+
+            .card {
+                flex-shrink: 1;
+                width: calc(50% - 4px);
+            }
+        }
+
+        @media(max-width: 500px) {
+            .card {
+                height: 180px;
+            }
+
+            .card-image {
+                height: 80px;
+            }
+
+            .card-image>i {
+                font-size: 3em;
+            }
+
+            .card-info-wrapper {
+                padding: 0px 10px;
+            }
+
+            .card-info>i {
+                font-size: 0.8em;
+            }
+
+            .card-info-title>h3 {
+                font-size: 0.9em;
+            }
+
+            .card-info-title>h4 {
+                font-size: 0.8em;
+                margin-top: 4px;
+            }
+        }
+
+        @media(max-width: 320px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+        /* -- ↓ ↓ ↓ YouTube link styles ↓ ↓ ↓ -- */
+
+        #youtube-link {
+            bottom: 10px;
+        }
+
+        #youtube-link>i {
+            color: rgb(239, 83, 80);
+        }
+
+        #source-link {
+            bottom: 60px;
+        }
+
+        #source-link>i {
+            color: rgb(94, 106, 210);
+        }
+
+        .link {
+            align-items: center;
+            backdrop-filter: blur(3px);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: inline-flex;
+            gap: 5px;
+            left: 10px;
+            padding: 10px 20px;
+            position: fixed;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .link>i,
+        .link>span {
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .link>span {
+            color: white;
+        }
+
+        .flex-container {
+
+            display: flex;
+
+            justify-content: space-between;
+
+
+            height: 85%;
+            padding: 15px;
+            gap: 0px;
+
+        }
+
+        .flex-container>div {
+
+
+            padding: 8px;
+        }
+
+
+        .item1 {
+            /* flex:0.5 1 auto; */
+            flex-grow: 0.5;
+        }
+
+        .item2 {
+            /* flex:1.5 1 auto; */
+            flex-grow: 1;
+        }
+
+        .item3 {
+            /* flex:0.5 1 auto; */
+            flex-grow: 0.5;
+        }
+    </style>
+</head>
+
+<body style="font-family: 'General Sans', sans-serif;" class=" bg-black ">
+    <Section class=" h-screen w-screen relative">
+        <header class="text-gray-100 body-font">
+            <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+                <a class="flex title-font font-medium items-center text-gray-100 mb-4 md:mb-0">
+                    <img src="logo.png" class="w-12">
+                    <span class="ml-3 text-xl">Fitvio.me</span>
+                </a>
+                <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition"
+                                href="index.html">Home</a></button>
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">About</a></button>
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition"
+                                href="#services">Services</a></button>
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">Contact</a></button>
+
+                    </nav>
+                </nav>
+                <a href="register.html"><button
+                        class="inline-flex items-center  border-2 border-gray-400  py-2 px-5 focus:outline-none hover:bg-gray-900 hover:text-white rounded-full text-white mt-4 md:mt-0">Register
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </button></a>
+            </div>
+        </header>
+
+        <div class="h-[30vh] flex flex-cols gap-2 mx-10 px-5">
+            <div class="h-full bg-[#2c2c2c] w-1/3 rounded-3xl p-5 relative overflow-hidden">
+                <h1 class="text-2xl">Hello User,</h1>
+                <h1 class="text-[1rem]">Time · Day · Date</h1>
+
+                <h1 class="text-2xl mt-5">Your Current Stats are :
+                </h1>
+                <h1 class="text-xl">Height :</h1>
+                <h1 class="text-xl">Weight :</h1>
+
+                <img src="https://www.nicepng.com/png/full/16-165556_dumbbells-clipart-group-fitness-weights-icon-white-png.png"
+                    class="absolute -top-10 right-5 opacity-40 w-40">
+                <div
+                    class="w-10 h-10 rounded-full bg-[#ffadad] absolute bottom-2 right-2 flex flex-cols justify-center items-center expand-button">
+                    <span class="expand-text text-black">Edit Records</span></div>
+            </div>
+            <div class="h-full bg-[#2c2c2c] w-1/3 rounded-3xl p-5 overflow-hidden relative">
+                <div class="flex flex-cols justify-center items-center ">
+                    <div class="grid">
+                        <h1 class="text-5xl mt-10 " id="display">00:00:00</h1>
+                        <div class="flex flex-cols w-96 mt-5 gap-5">
+                            <button class="h-10 w-1/3 rounded-full bg-white flex flex-cols justify-center items-center"
+                                id="startBtn">Start</button>
+                           
+                            <button class="h-10 w-1/3 rounded-full bg-white flex flex-cols justify-center items-center"
+                                id="resetBtn"> Reset</button>
+                        </div>
+                    </div>
+                    <img src="clock.png" class="absolute -top-2 rotate-[30deg] -right-2 opacity-40 w-40">
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="h-[55vh] flex flex-cols gap-2 mx-10 px-5 mt-2 mb-10">
+                <div class="h-full bg-[#2c2c2c] w-2/3 rounded-3xl"></div>
+                <div class="h-full bg-[#2c2c2c] w-1/3 rounded-3xl"></div>
+            </div>
+</body>
+<script>var stopwatchInterval;
+    var startTime;
+    var elapsedTime = 0;
+    var isRunning = false;
+    
+    function startStopwatch() {
+      if (!isRunning) {
+        startTime = Date.now() - elapsedTime;
+        stopwatchInterval = setInterval(updateStopwatch, 10);
+        isRunning = true;
+        document.getElementById("startBtn").textContent = "Pause";
+      } else {
+        clearInterval(stopwatchInterval);
+        isRunning = false;
+        document.getElementById("startBtn").textContent = "Resume";
+      }
+    }
+    
+    function resetStopwatch() {
+      clearInterval(stopwatchInterval);
+      elapsedTime = 0;
+      updateStopwatch();
+      isRunning = false;
+      document.getElementById("startBtn").textContent = "Start";
+    }
+    
+    function updateStopwatch() {
+      var currentTime = Date.now();
+      elapsedTime = currentTime - startTime;
+      var formattedTime = formatTime(elapsedTime);
+      document.getElementById("display").textContent = formattedTime;
+    }
+    
+    function formatTime(milliseconds) {
+      var hours = Math.floor(milliseconds / (1000 * 60 * 60));
+      var minutes = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);
+      var centiseconds = Math.floor((milliseconds % 1000) / 10);
+    
+      return (
+        padTime(hours) + ":" +
+        padTime(minutes) + ":" +
+        padTime(seconds) + ":" +
+        padTime(centiseconds)
+      );
+    }
+    
+    function padTime(time) {
+      return time.toString().padStart(2, "0");
+    }
+    
+    document.getElementById("startBtn").addEventListener("click", startStopwatch);
+    document.getElementById("stopBtn").addEventListener("click", resetStopwatch);
+    document.getElementById("resetBtn").addEventListener("click", resetStopwatch);
+    
+    </script>
+
+</html>
