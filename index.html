@@ -9,6 +9,11 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,300&f[]=alpino@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@1&display=swap" rel="stylesheet">
+
     <style>
 
 :root {
@@ -16,13 +21,16 @@
   --card-color: rgb(23, 23, 23);
 }
 
-
+.font-nunito{
+  font-family: 'Nunito';
+}
 #cards {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;  
   max-width: 916px;
   width: calc(100% - 20px);
+  font-family: 'Nunito' !important;
 }
 
 #cards:hover > .card::after {
@@ -38,6 +46,7 @@
   flex-direction: column;
   position: relative;
   width: 300px;  
+  font-family: 'Nunito' !important;
 }
 
 .card:hover::before {
@@ -66,6 +75,10 @@
   z-index: 3;
 }
 
+.hero_text{
+  font-family: 'Clash Display', sans-serif;
+}
+
 .card::after {  
   background: radial-gradient(
     600px circle at var(--mouse-x) var(--mouse-y), 
@@ -91,7 +104,6 @@
 
 h1, h2, h3, h4, span {
   color: rgb(240, 240, 240);
-  font-family: "Rubik", sans-serif;
   font-weight: 400;
   margin: 0px;
 }
@@ -311,7 +323,7 @@ i {
         </header>
 
         <section class="h-[80vh] ">
-            <div class="flex flex-cols justify-center items-center h-full">
+            <div class="flex flex-cols justify-center items-center h-full hero_text">
                 <div class="grid grid-rows gap-5">
                     <h1 class="z-0 text-7xl text-center text-gray-200">Shape Your</h1>
                     <h1 class="text-9xl text-center text-gray-200 z-40 font-bold">Perfect Body</h1>
@@ -330,8 +342,8 @@ i {
 
 
             </div>
-            <h1 class="text-4xl text-center mt-5">7129</h1>
-            <h1 class="text-xl text-center  text-gray-600">Calories Burnt</h1>
+            <h1 class="text-4xl text-center mt-5 hero_text">7129</h1>
+            <h1 class="text-xl text-center  text-black hero_text">Calories Burnt</h1>
            
         </div>
         <div class="h-48 w-48 bg-green-300 absolute bottom-10 right-32 rounded-3xl p-5 ">
@@ -342,8 +354,8 @@ i {
 
 
             </div>
-            <h1 class="text-4xl text-center mt-5">3459</h1>
-            <h1 class="text-xl text-center  text-gray-600">Steps Walked</h1>
+            <h1 class="text-4xl text-center mt-5 hero_text">3459</h1>
+            <h1 class="text-xl text-center  text-black hero_text">Steps Walked</h1>
            
         </div>
 
@@ -362,8 +374,8 @@ i {
                           <div class="card-info">
                             <i class="fa-solid fa-dumbbell"></i>
                             <div class="card-info-title">
-                              <h3>Custom Workouts</h3>  
-                              <h4>Generate Workout according to your needs</h4>
+                              <h3>Personalized workout generator</h3>  
+                              <h4>Uses machine learning to create a workout specialised for you.</h4>
                             </div>    
                           </div>
                         </div>
@@ -372,14 +384,14 @@ i {
                     <div class="card">
                       <div class="card-content">
                         <div class="card-image">
-                            <i class="fa-regular fa-pan-food"></i>
+                          <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <div class="card-info-wrapper">
                           <div class="card-info">
-                            <i class="fa-regular fa-pan-food"></i>
+                            <i class="fa-solid fa-location-dot"></i>
                             <div class="card-info-title">
-                              <h3>Unicorns</h3>  
-                              <h4>A single corn. Er, I mean horn.</h4>
+                              <h3>Locality based workout generator</h3>  
+                              <h4>Generate workouts based on your location. Anywhere, everywhere.</h4>
                             </div>    
                           </div>  
                         </div>
@@ -388,14 +400,14 @@ i {
                     <div class="card">
                       <div class="card-content">
                         <div class="card-image">
-                          <i class="fa-duotone fa-blender-phone"></i>
+                          <i class="fa-solid fa-person-walking"></i>
                         </div>
                         <div class="card-info-wrapper">
                           <div class="card-info">
-                            <i class="fa-duotone fa-blender-phone"></i>
+                            <i class="fa-solid fa-person-walking"></i>
                             <div class="card-info-title">
-                              <h3>Blender Phones</h3>  
-                              <h4>These absolutely deserve to exist.</h4>
+                              <h3>Over 1300 exercises</h3>  
+                              <h4>Unique exercises to help you achieve perfection.</h4>
                             </div>    
                           </div>
                         </div>
