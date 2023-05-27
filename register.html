@@ -294,19 +294,21 @@ i {
                     <span class="ml-3 text-xl">Fitvio.me</span>
                 </a>
                 <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-                    <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">Home</a></button>
-                    <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">About</a></button>
-                    <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">Services</a></button>
-                    <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">Contact</a></button>
-
+                    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition" href="index.html">Home</a></button>
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">About</a></button>
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition" href="#services">Services</a></button>
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition" >Contact</a></button>
+    
+                    </nav>
                 </nav>
-                <button
+                <a href="register.html"><button
                     class="inline-flex items-center  border-2 border-gray-400  py-2 px-5 focus:outline-none hover:bg-gray-900 hover:text-white rounded-full text-white mt-4 md:mt-0">Register
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                     </svg>
-                </button>
+                </button></a>
             </div>
         </header>
 
@@ -347,7 +349,10 @@ i {
             <label class="block uppercase text-gray-300 text-xs font-bold mb-2" for="grid-password">Password</label><input type="password" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Password">
           </div>
           <div>
-            <label class="inline-flex items-center cursor-pointer"><input id="customCheckLogin" type="checkbox" class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"><span class="ml-2 text-sm font-semibold text-blueGray-600">Remember me</span></label>
+            <label class="inline-flex items-center cursor-pointer"><input id="customCheckLogin" type="checkbox" class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"><span class="ml-2 text-sm font-semibold text-Gray-100">Remember me</span></label>
+          </div>
+          <div>
+            <label class="inline-flex items-center cursor-pointer"><span class="ml-2 text-sm font-semibold text-blueGray-100">Already Have An Account ? <a href="login.html" class="underline">Sign In Here</a></span></label>
           </div>
           <div class="text-center mt-6">
             <button class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button"> Sign up </button>

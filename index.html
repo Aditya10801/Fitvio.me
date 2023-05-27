@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=alpino@700&f[]=satoshi@400&f[]=red-hat-display@900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c416e79406.js" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -306,25 +307,27 @@ i {
                     <span class="ml-3 text-xl">Fitvio.me</span>
                 </a>
                 <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-                    <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">Home</a></button>
-                    <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">About</a></button>
-                    <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">Services</a></button>
-                    <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">Contact</a></button>
-
+                    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition" href="index.html">Home</a></button>
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition">About</a></button>
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition" href="#services">Services</a></button>
+                        <button><a class="mr-5 hover:bg-white hover:text-black px-5 transition" >Contact</a></button>
+    
+                    </nav>
                 </nav>
-                <button
+                <a href="register.html"><button
                     class="inline-flex items-center  border-2 border-gray-400  py-2 px-5 focus:outline-none hover:bg-gray-900 hover:text-white rounded-full text-white mt-4 md:mt-0">Register
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                     </svg>
-                </button>
+                </button></a>
             </div>
         </header>
 
         <section class="h-[80vh] ">
             <div class="flex flex-cols justify-center items-center h-full hero_text">
-                <div class="grid grid-rows gap-5">
+                <div class="grid grid-rows gap-5" style="font-family: 'Red Hat Display', sans-serif;">
                     <h1 class="z-0 text-7xl text-center text-gray-200">Shape Your</h1>
                     <h1 class="text-9xl text-center text-gray-200 z-40 font-bold">Perfect Body.</h1>
                 </div>
@@ -335,7 +338,7 @@ i {
             <img src="hero.png" class="absolute bottom-0 z-10">
         </div>
 
-        <div class="h-48 w-48 bg-red-300 absolute top-32 left-32 rounded-3xl p-5">
+        <div class="h-48 w-48 bg-red-300 absolute top-32 left-32 rounded-3xl p-5" style="font-family: 'Satoshi', sans-serif;">
             <div class="flex flex-cols justify-center items-center grid ">
 
                 <ion-icon name="flame-outline" class="text-5xl bg-gray-50 px-2 py-2    rounded-full"></ion-icon>
@@ -346,7 +349,7 @@ i {
             <h1 class="text-xl text-center  text-black hero_text">Calories Burnt</h1>
            
         </div>
-        <div class="h-48 w-48 bg-green-300 absolute bottom-10 right-32 rounded-3xl p-5 ">
+        <div class="h-48 w-48 bg-green-300 absolute bottom-10 right-32 rounded-3xl p-5 " style="font-family: 'Satoshi', sans-serif;">
 
             <div class="flex flex-cols justify-center items-center grid ">
 
@@ -359,9 +362,9 @@ i {
            
         </div>
 
-        <section class="h-screen w-screen mt-32 ">
+        <section class="h-screen w-screen mt-32 " id="services">
             <section class="h-1/5  mx-10 flex flex-cols justify-center items-center">
-                <h1 class="text-7xl text-white font-black hero_text">Features</h1>
+                <h1 class="text-7xl text-white font-black hero_text" style="font-family: 'Red Hat Display', sans-serif;">Features</h1>
             </section>
             <section class="h-3/5 mt-10 flex flex-cols justify-center items-center">
                 <div id="cards">
